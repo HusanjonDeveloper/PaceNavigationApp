@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PaceNavigationApp.View"
+             xmlns:vm="clr-namespace:PaceNavigationApp.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600"
+             d:DesignWidth="622" 
+             Style="{StaticResource Page_Style}">
+
+    <UserControl.DataContext>
+        <vm:ProductVM />
+
+    </UserControl.DataContext>
+    
     <Grid>
+
+        <Border CornerRadius="0,20,20,0">
+
+            <Border.Background>
+
+                <ImageBrush ImageSource="/Images/product_page.jpg"
+                            Stretch="None"/>
+
+            </Border.Background>
             
+        </Border>
+
+        <TextBlock Text="{Binding ProductAvailability}"
+                   Foreground="#F25E68"
+                   FontSize="12"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontFamily="/Fonts/#Rubik Medium"
+                   Margin="276,300,0,0"/>
+
     </Grid>
 </UserControl>
