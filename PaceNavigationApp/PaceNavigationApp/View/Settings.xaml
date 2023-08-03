@@ -3,10 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PaceNavigationApp.View"
+             xmlns:vm="clr-namespace:PaceNavigationApp.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600"
+             d:DesignWidth="622"
+             Style="{StaticResource Page_Style}">
+
+    <UserControl.DataContext>
+        
+        <vm:SettingVM />
+        
+    </UserControl.DataContext>
+    
     <Grid>
+
+        <Border CornerRadius="0,20,20,0">
+
+            <Border.Background>
+
+                <ImageBrush ImageSource="/Images/Setting.jpg"
+                            Stretch="None"/>
+
+            </Border.Background>
+            
+            
+        </Border>
+
+        <TextBlock Foreground="#CED565"
+                   FontSize="12"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   FontFamily="/Fonts/#Rubik Medium"
+                   Margin="0,290,238,0">
+
+
+
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+
+                    <Setter Property="Text"
+                            Value="OFF"/>
+
+                    <Style.Triggers>
+                        <DataTrigger  Binding="{Binding Settings}"
+                                      Value="True">
+                            <Setter Property="Text"
+                                    Value="ON"/>
+
+                        </DataTrigger>
+                        
+                    </Style.Triggers>
+
+                </Style>
+                
+            </TextBlock.Style>
+                
+                
+        </TextBlock>
+        
             
     </Grid>
 </UserControl>
